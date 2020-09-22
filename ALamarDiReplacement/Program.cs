@@ -16,7 +16,8 @@ namespace ALamarDiReplacement
         {
             CreateHostBuilder(args)
                 .UseLamar()
-                .Build().Run();
+                .Build()
+                .Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

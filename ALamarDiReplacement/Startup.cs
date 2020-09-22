@@ -25,13 +25,23 @@ namespace ALamarDiReplacement
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        /*public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
+
             var container = new Container(x =>
             {
-                x.AddTransient<IDBManager, DBManager>();
+                x.AddScoped<IDBManager, DBManager>();
             });
-            services.AddControllers();
+        }*/
+
+        public void ConfigureContainer(ServiceRegistry services)
+        {
+            services
+                .AddMvc()
+                .AddControllersAsServices()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddTransient<IDBManager, DBManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

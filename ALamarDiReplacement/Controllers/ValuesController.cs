@@ -18,6 +18,7 @@ namespace ALamarDiReplacement.Controllers
 
         public ValuesController(ILogger<ValuesController> logger, IDBManager dBManager)
         {
+            
             _dBManager = dBManager;
             _logger = logger;
         }
